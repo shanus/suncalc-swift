@@ -18,8 +18,8 @@ class suncalc_exampleTests: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()
-		var calendar:NSCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
-		calendar.timeZone = NSTimeZone(abbreviation: "GMT")
+		var calendar:NSCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
+		calendar.timeZone = NSTimeZone(abbreviation: "GMT")!
 		var components:NSDateComponents = NSDateComponents()
 		components.year = 2013
 		components.month = 3
