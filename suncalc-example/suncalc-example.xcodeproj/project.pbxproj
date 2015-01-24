@@ -508,6 +508,7 @@
 				11C516D919DDDD9200553C5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11C516DA19DDDD9200553C5A /* Build configuration list for PBXNativeTarget "suncalc-exampleTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +517,7 @@
 				11C516DC19DDDD9200553C5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
