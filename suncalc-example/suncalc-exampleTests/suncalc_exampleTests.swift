@@ -18,9 +18,9 @@ class suncalc_exampleTests: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()
-		var calendar:NSCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
+		let calendar:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
 		calendar.timeZone = NSTimeZone(abbreviation: "GMT")!
-		var components:NSDateComponents = NSDateComponents()
+		let components:NSDateComponents = NSDateComponents()
 		components.year = 2013
 		components.month = 3
 		components.day = 5
@@ -35,7 +35,7 @@ class suncalc_exampleTests: XCTestCase {
 	func test_sun_getTimes() {
 		let sunCalc:SunCalc = SunCalc.getTimes(date, latitude: LAT, longitude: LNG)
 		
-		var formatter:NSDateFormatter = NSDateFormatter()
+		let formatter:NSDateFormatter = NSDateFormatter()
 		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 		formatter.timeZone = NSTimeZone(abbreviation: "GMT")
 		
@@ -57,38 +57,38 @@ class suncalc_exampleTests: XCTestCase {
 	
 	func test_sun_getPosition() {
 		let sunPos:SunPosition = SunCalc.getSunPosition(date, latitude: LAT, longitude: LNG)
-		XCTAssertEqualWithAccuracy(sunPos.azimuth, -2.5003175907168385, NEARNESS)
-		XCTAssertEqualWithAccuracy(sunPos.altitude, -0.7000406838781611, NEARNESS)
+		XCTAssertEqualWithAccuracy(sunPos.azimuth, -2.5003175907168385, accuracy: NEARNESS)
+		XCTAssertEqualWithAccuracy(sunPos.altitude, -0.7000406838781611, accuracy: NEARNESS)
 	}
 	
 	func test_getMoonPosition() {
 		let moonPos:MoonPosition = SunCalc.getMoonPosition(date, latitude: LAT, longitude: LNG)
-		XCTAssertEqualWithAccuracy(moonPos.azimuth, -0.9783999522438226, NEARNESS)
-		XCTAssertEqualWithAccuracy(moonPos.altitude, 0.006969727754891917, NEARNESS)
-		XCTAssertEqualWithAccuracy(moonPos.distance, 364121.37256256294, NEARNESS)
+		XCTAssertEqualWithAccuracy(moonPos.azimuth, -0.9783999522438226, accuracy: NEARNESS)
+		XCTAssertEqualWithAccuracy(moonPos.altitude, 0.006969727754891917, accuracy: NEARNESS)
+		XCTAssertEqualWithAccuracy(moonPos.distance, 364121.37256256294, accuracy: NEARNESS)
 	}
 	
 	func test_getMoonIllumination() {
 		let moonIllum:MoonIllumination = SunCalc.getMoonIllumination(date)
-		XCTAssertEqualWithAccuracy(moonIllum.fraction, 0.4848068202456373, NEARNESS)
-		XCTAssertEqualWithAccuracy(moonIllum.phase, 0.7548368838538762, NEARNESS)
-		XCTAssertEqualWithAccuracy(moonIllum.angle, 1.6732942678578346, NEARNESS)
+		XCTAssertEqualWithAccuracy(moonIllum.fraction, 0.4848068202456373, accuracy: NEARNESS)
+		XCTAssertEqualWithAccuracy(moonIllum.phase, 0.7548368838538762, accuracy: NEARNESS)
+		XCTAssertEqualWithAccuracy(moonIllum.angle, 1.6732942678578346, accuracy: NEARNESS)
 	}
 	
 	func test_README_example() {
 		let date:NSDate = NSDate()
 		let sunCalc:SunCalc = SunCalc.getTimes(date, latitude: 51.5, longitude: -0.1)
 		
-		var formatter:NSDateFormatter = NSDateFormatter()
+		let formatter:NSDateFormatter = NSDateFormatter()
 		formatter.dateFormat = "HH:mm"
 		formatter.timeZone = NSTimeZone(abbreviation: "GMT")
-		var sunriseString:String = formatter.stringFromDate(sunCalc.sunrise)
-		println("sunrise is at \(sunriseString)")
+		let sunriseString:String = formatter.stringFromDate(sunCalc.sunrise)
+		print("sunrise is at \(sunriseString)")
 		
 		let sunPos:SunPosition = SunCalc.getSunPosition(date, latitude: 51.5, longitude: -0.1)
 		
-		var sunriseAzimuth:Double = sunPos.azimuth * 180 / Constants.PI()
-		println("sunrise azimuth: \(sunriseAzimuth)")
+		let sunriseAzimuth:Double = sunPos.azimuth * 180 / Constants.PI()
+		print("sunrise azimuth: \(sunriseAzimuth)")
 	}
 	
 	

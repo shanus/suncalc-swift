@@ -17,10 +17,10 @@ class ViewController: UIViewController {
 		let date:NSDate = NSDate()
 		let sunCalc:SunCalc = SunCalc.getTimes(date, latitude: 51.5, longitude: -0.1)
 		
-		var formatter:NSDateFormatter = NSDateFormatter()
+		let formatter:NSDateFormatter = NSDateFormatter()
 		formatter.dateFormat = "HH:mm"
 		formatter.timeZone = NSTimeZone(abbreviation: "GMT")
-		var sunriseString:String = formatter.stringFromDate(sunCalc.sunrise)
+		let sunriseString:String = formatter.stringFromDate(sunCalc.sunrise)
 		timeLabel.text = sunriseString
 	}
 

@@ -28,8 +28,8 @@ class SunCalc {
 	var dawn:NSDate
 	
 	class func getSetJ(h:Double, phi:Double, dec:Double, lw:Double, n:Double, M:Double, L:Double) -> Double {
-		var w:Double = TimeUtils.getHourAngleH(h, phi: phi, d: dec)
-		var a:Double = TimeUtils.getApproxTransitHt(w, lw: lw, n: n)
+		let w:Double = TimeUtils.getHourAngleH(h, phi: phi, d: dec)
+		let a:Double = TimeUtils.getApproxTransitHt(w, lw: lw, n: n)
 		
 		return TimeUtils.getSolarTransitJDs(a, M: M, L: L)
 	}
@@ -39,23 +39,23 @@ class SunCalc {
 	}
 	
 	class func getSunPosition(timeAndDate:NSDate, latitude:Double, longitude:Double) -> SunPosition {
-		var lw:Double = Constants.RAD() * -longitude
-		var phi:Double = Constants.RAD() * latitude
-		var d:Double = DateUtils.toDays(timeAndDate)
+		let lw:Double = Constants.RAD() * -longitude
+		let phi:Double = Constants.RAD() * latitude
+		let d:Double = DateUtils.toDays(timeAndDate)
 		
-		var c:EquatorialCoordinates = SunUtils.getSunCoords(d)
-		var H:Double = PositionUtils.getSiderealTimeD(d, lw: lw) - c.rightAscension
+		let c:EquatorialCoordinates = SunUtils.getSunCoords(d)
+		let H:Double = PositionUtils.getSiderealTimeD(d, lw: lw) - c.rightAscension
 		
 		return SunPosition(azimuth: PositionUtils.getAzimuthH(H, phi: phi, dec: c.declination), altitude: PositionUtils.getAltitudeH(H, phi: phi, dec: c.declination))
 	}
 	
 	class func getMoonPosition(timeAndDate:NSDate, latitude:Double, longitude:Double) -> MoonPosition {
-		var lw:Double = Constants.RAD() * -longitude
-		var phi:Double = Constants.RAD() * latitude
-		var d:Double = DateUtils.toDays(timeAndDate)
+		let lw:Double = Constants.RAD() * -longitude
+		let phi:Double = Constants.RAD() * latitude
+		let d:Double = DateUtils.toDays(timeAndDate)
 		
-		var c:GeocentricCoordinates = MoonUtils.getMoonCoords(d)
-		var H:Double = PositionUtils.getSiderealTimeD(d, lw: lw) - c.rightAscension
+		let c:GeocentricCoordinates = MoonUtils.getMoonCoords(d)
+		let H:Double = PositionUtils.getSiderealTimeD(d, lw: lw) - c.rightAscension
 		var h:Double = PositionUtils.getAltitudeH(H, phi: phi, dec: c.declination)
 		
 		// altitude correction for refraction
@@ -65,35 +65,35 @@ class SunCalc {
 	}
 	
 	class func getMoonIllumination(timeAndDate:NSDate) -> MoonIllumination {
-		var d:Double = DateUtils.toDays(timeAndDate)
-		var s:EquatorialCoordinates = SunUtils.getSunCoords(d)
-		var m:GeocentricCoordinates = MoonUtils.getMoonCoords(d)
+		let d:Double = DateUtils.toDays(timeAndDate)
+		let s:EquatorialCoordinates = SunUtils.getSunCoords(d)
+		let m:GeocentricCoordinates = MoonUtils.getMoonCoords(d)
 		
 		let sdist:Double = 149598000; // distance from Earth to Sun in km
 		
-		var phi:Double = acos(sin(s.declination) * sin(m.declination) + cos(s.declination) * cos(m.declination) * cos(s.rightAscension - m.rightAscension))
-		var inc:Double = atan2(sdist * sin(phi), m.distance - sdist * cos(phi))
-		var angle:Double = atan2(cos(s.declination) * sin(s.rightAscension - m.rightAscension), sin(s.declination) * cos(m.declination) - cos(s.declination) * sin(m.declination) * cos(s.rightAscension - m.rightAscension))
+		let phi:Double = acos(sin(s.declination) * sin(m.declination) + cos(s.declination) * cos(m.declination) * cos(s.rightAscension - m.rightAscension))
+		let inc:Double = atan2(sdist * sin(phi), m.distance - sdist * cos(phi))
+		let angle:Double = atan2(cos(s.declination) * sin(s.rightAscension - m.rightAscension), sin(s.declination) * cos(m.declination) - cos(s.declination) * sin(m.declination) * cos(s.rightAscension - m.rightAscension))
 		
-		var fraction:Double = (1 + cos(inc)) / 2
-		var phase:Double = 0.5 + 0.5 * inc * (angle < 0 ? -1 : 1) / Constants.PI()
+		let fraction:Double = (1 + cos(inc)) / 2
+		let phase:Double = 0.5 + 0.5 * inc * (angle < 0 ? -1 : 1) / Constants.PI()
 		
 		return MoonIllumination(fraction: fraction, phase: phase, angle: angle)
 	}
 	
 	init(date:NSDate, latitude:Double, longitude:Double) {
-		var lw:Double = Constants.RAD() * -longitude
-		var phi:Double = Constants.RAD() * latitude
-		var d:Double = DateUtils.toDays(date)
+		let lw:Double = Constants.RAD() * -longitude
+		let phi:Double = Constants.RAD() * latitude
+		let d:Double = DateUtils.toDays(date)
 		
-		var n:Double = TimeUtils.getJulianCycleD(d, lw: lw)
-		var ds:Double = TimeUtils.getApproxTransitHt(0, lw: lw, n: n)
+		let n:Double = TimeUtils.getJulianCycleD(d, lw: lw)
+		let ds:Double = TimeUtils.getApproxTransitHt(0, lw: lw, n: n)
 		
-		var M:Double = SunUtils.getSolarMeanAnomaly(ds)
-		var L:Double = SunUtils.getEclipticLongitudeM(M)
-		var dec:Double = PositionUtils.getDeclinationL(L, b: 0)
+		let M:Double = SunUtils.getSolarMeanAnomaly(ds)
+		let L:Double = SunUtils.getEclipticLongitudeM(M)
+		let dec:Double = PositionUtils.getDeclinationL(L, b: 0)
 		
-		var Jnoon:Double = TimeUtils.getSolarTransitJDs(ds, M: M, L: L)
+		let Jnoon:Double = TimeUtils.getSolarTransitJDs(ds, M: M, L: L)
 		
 		self.solarNoon = DateUtils.fromJulian(Jnoon)
 		self.nadir = DateUtils.fromJulian(Jnoon - 0.5)

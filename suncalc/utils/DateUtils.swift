@@ -20,7 +20,7 @@ class DateUtils {
 	}
 	
 	class func fromJulian(j:Double) -> NSDate {
-		var timeInterval = (j + 0.5 - J1970) * DAY_SECONDS
+		let timeInterval = (j + 0.5 - J1970) * DAY_SECONDS
 		return NSDate(timeIntervalSince1970: timeInterval)
 	}
 	
