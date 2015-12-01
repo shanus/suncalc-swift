@@ -13,8 +13,8 @@
 		11C516C519DDDD9200553C5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C516C419DDDD9200553C5A /* Images.xcassets */; };
 		11C516C819DDDD9200553C5A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C516C619DDDD9200553C5A /* LaunchScreen.xib */; };
 		11C516D419DDDD9200553C5A /* suncalc_exampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C516D319DDDD9200553C5A /* suncalc_exampleTests.swift */; };
-		11C516E119DDDE6D00553C5A /* suncalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C516DF19DDDE6D00553C5A /* suncalc.swift */; };
-		11C516E219DDDE6D00553C5A /* suncalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C516DF19DDDE6D00553C5A /* suncalc.swift */; };
+		11C516E119DDDE6D00553C5A /* SunCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C516DF19DDDE6D00553C5A /* SunCalc.swift */; };
+		11C516E219DDDE6D00553C5A /* SunCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C516DF19DDDE6D00553C5A /* SunCalc.swift */; };
 		11C516E519DDE23600553C5A /* SunPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C516E419DDE23600553C5A /* SunPosition.swift */; };
 		11C516E619DDE23600553C5A /* SunPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C516E419DDE23600553C5A /* SunPosition.swift */; };
 		11C516E819DDE24500553C5A /* MoonPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C516E719DDE24500553C5A /* MoonPosition.swift */; };
@@ -60,7 +60,7 @@
 		11C516CD19DDDD9200553C5A /* suncalc-exampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "suncalc-exampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C516D219DDDD9200553C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11C516D319DDDD9200553C5A /* suncalc_exampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = suncalc_exampleTests.swift; sourceTree = "<group>"; };
-		11C516DF19DDDE6D00553C5A /* suncalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = suncalc.swift; sourceTree = "<group>"; };
+		11C516DF19DDDE6D00553C5A /* SunCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunCalc.swift; sourceTree = "<group>"; };
 		11C516E419DDE23600553C5A /* SunPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunPosition.swift; sourceTree = "<group>"; };
 		11C516E719DDE24500553C5A /* MoonPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonPosition.swift; sourceTree = "<group>"; };
 		11C516EA19DDE25600553C5A /* MoonIllumination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonIllumination.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				11C516DE19DDDE6D00553C5A /* models */,
-				11C516DF19DDDE6D00553C5A /* suncalc.swift */,
+				11C516DF19DDDE6D00553C5A /* SunCalc.swift */,
 				11C516E019DDDE6D00553C5A /* utils */,
 			);
 			name = suncalc;
@@ -295,7 +295,7 @@
 				11C516C019DDDD9200553C5A /* ViewController.swift in Sources */,
 				11C516EB19DDE25600553C5A /* MoonIllumination.swift in Sources */,
 				11C516FA19DDE2AF00553C5A /* MoonUtils.swift in Sources */,
-				11C516E119DDDE6D00553C5A /* suncalc.swift in Sources */,
+				11C516E119DDDE6D00553C5A /* SunCalc.swift in Sources */,
 				11C516EE19DDE26B00553C5A /* GeocentricCoordinates.swift in Sources */,
 				11C5170319DDE2D800553C5A /* TimeUtils.swift in Sources */,
 				11C516E819DDE24500553C5A /* MoonPosition.swift in Sources */,
@@ -318,7 +318,7 @@
 				11C516D419DDDD9200553C5A /* suncalc_exampleTests.swift in Sources */,
 				11C516F819DDE2A300553C5A /* DateUtils.swift in Sources */,
 				11C5170419DDE2D800553C5A /* TimeUtils.swift in Sources */,
-				11C516E219DDDE6D00553C5A /* suncalc.swift in Sources */,
+				11C516E219DDDE6D00553C5A /* SunCalc.swift in Sources */,
 				11C516FE19DDE2BF00553C5A /* PositionUtils.swift in Sources */,
 				11C516E919DDE24500553C5A /* MoonPosition.swift in Sources */,
 				11C5170119DDE2CD00553C5A /* SunUtils.swift in Sources */,

@@ -22,6 +22,8 @@ class ViewController: UIViewController {
 		formatter.timeZone = NSTimeZone(abbreviation: "GMT")
 		let sunriseString:String = formatter.stringFromDate(sunCalc.sunrise)
 		timeLabel.text = sunriseString
+        
+        print("Sunrise in London is \(sunriseString)")
 	}
 
 	override func didReceiveMemoryWarning() {
