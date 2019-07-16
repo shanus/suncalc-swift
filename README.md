@@ -8,13 +8,13 @@ This code is based on the original Javascript suncalc by Vladimir Agafonkin ("mo
 ```swift
 // get today's sunlight times for London
 
-let date:NSDate = NSDate()
+let date:Date = Date()
 let sunCalc:SunCalc = SunCalc.getTimes(date, latitude: 51.5, longitude: -0.1)
 
-var formatter:NSDateFormatter = NSDateFormatter()
+var formatter:DateFormatter = DateFormatter()
 formatter.dateFormat = "HH:mm"
-formatter.timeZone = NSTimeZone(abbreviation: "GMT")
-var sunriseString:String = formatter.stringFromDate(sunCalc.sunrise)
+formatter.timeZone = TimeZone(abbreviation: "GMT")
+var sunriseString:String = formatter.string(from: sunCalc.sunrise)
 println("sunrise is at \(sunriseString)")
 
 let sunPos:SunPosition = SunCalc.getSunPosition(date, latitude: 51.5, longitude: -0.1)

@@ -3,7 +3,6 @@
 //  suncalc-example
 //
 //  Created by Shaun Meredith on 10/2/14.
-//  Copyright (c) 2014 Chimani, LLC. All rights reserved.
 //
 
 import Foundation
@@ -21,6 +20,6 @@ class MoonUtils {
 		let b:Double  = Constants.RAD() * 5.128 * sin(F);        // latitude
 		let dt:Double = 385001 - 20905 * cos(M);     // distance to the moon in km
 		
-		return GeocentricCoordinates(rightAscension: PositionUtils.getRightAscensionL(l, b: b), declination: PositionUtils.getDeclinationL(l, b: b), distance: dt)
+        return GeocentricCoordinates(rightAscension: PositionUtils.getRightAscension(l:l, b: b), declination: PositionUtils.getDeclination(l: l, b: b), distance: dt)
 	}
 }
